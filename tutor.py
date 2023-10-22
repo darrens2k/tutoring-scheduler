@@ -42,11 +42,15 @@ class Tutor:
                 # reduce amount of hours student needs
                 student.hours_needed -= 1
 
-                # remove the course that the tutor is tutoring from the list 
+                # remove the course from the students course list
                 student.courses.remove(course)
 
                 # change result
                 result = True
+
+                # if the student has been assigned, break the loop
+                if result == True:
+                    break
 
         return result
 

@@ -7,6 +7,9 @@ class Student:
     Student ID (a unique integer identifier for each student)
     Courses they need tutoring in (list of strings representing the courses a student needs tutoring in)
     Hours they need tutoring (an integer representing the amount of hours of tutoring the student would like to receive, must be equal to the length of the courses list)
+
+    Note that the school schedules only 1 hour sessions.
+    So if a student wants 2 hours of math, 'Math' should appear twice in their courses list
     
     """
 

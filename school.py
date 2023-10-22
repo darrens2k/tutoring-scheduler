@@ -32,21 +32,21 @@ class School:
         for student in self.students:
 
             # if the student needs no more hours, move to next iteration
-            if student.hours_needed == 0:
+            if student.hours_needed < 0:
                 continue
 
             # iterate through the number of tutors
             for tutor in self.tutors:
 
                 # if the student needs no more hours, move to next iteration
-                if student.hours_needed == 0:
+                if student.hours_needed < 0:
                     continue
 
                 # check if tutor teaches courses student needs
                 for course in student.courses:
-
+                    
                     # if the student needs no more hours, move to next iteration
-                    if student.hours_needed == 0:
+                    if student.hours_needed < 0:
                         continue
 
                     if course in tutor.courses:
@@ -55,11 +55,10 @@ class School:
                         assigned = tutor.assign_student(student, course)
 
                         # if the student needs no more hours, move to next iteration
-                        if student.hours_needed == 0:
+                        if student.hours_needed < 0:
                             continue
 
-
-
+        # print out schedule for each tutor
         for tutor in self.tutors:
             print(f'Schedule for {tutor}:')
             for hour, students in enumerate(tutor.students_each_hour):
