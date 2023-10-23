@@ -33,8 +33,14 @@ class Tutor:
 
                 # enter if current hour has space
 
+                # check if a student is with another tutor this hour
+                if student.in_class[hour] == 1:
+                    
+                    # skip to next hour if student is in class this hour
+                    continue
+
                 # assign student
-                self.students_each_hour[hour].append(student)
+                self.students_each_hour[hour].append([student, course])
 
                 # update hourly student counter
                 self.current_students[hour] += 1
@@ -44,6 +50,9 @@ class Tutor:
 
                 # remove the course from the students course list
                 student.courses.remove(course)
+
+                # mark the student as in class for this hour
+                student.in_class[hour] = 1
 
                 # change result
                 result = True

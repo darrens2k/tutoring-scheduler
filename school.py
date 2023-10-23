@@ -62,6 +62,6 @@ class School:
         for tutor in self.tutors:
             print(f'Schedule for {tutor}:')
             for hour, students in enumerate(tutor.students_each_hour):
-                print(f'Hour {hour + 1}: {", ".join([str(student) for student in students])}')
+                print(f'Hour {hour + 1}: {", ".join([str(student) + " " +  course for student, course in students])}')
             print()
 
